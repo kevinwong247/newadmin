@@ -1,0 +1,9 @@
+<div style="margin-top: 20px;">
+  <strong>Email:</strong> <%= user.email %><br />
+  <strong>Password Digest:</strong> <%= user.password_digest %><br />
+  
+  
+  <%= link_to "Show User", user_path(user) %>
+  <%= link_to "Edit User", edit_user_path(user) %>
+  <%= link_to "Destroy User", user_path(user), method: :delete %>
+</div>

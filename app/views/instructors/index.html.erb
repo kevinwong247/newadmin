@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Instructor:</h1>
+  <a href="/instructors/new" class="waves-effect waves-light btn indigo lighten-1"><i class="material-icons md-24 right">add_circle_outline</i>Add instructor</a>
+  <table class="posts">
+    <thead>
+      <tr>
+        <th class="first_name">First Name</th>
+        <th class="last_name">Last Name</th>
+        <th class="age">Age</th>
+        <th class="education">Education</th>
+        <th class="cohort">Cohort</th>
+        <th>Show</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <% @instructors.each do |instructor| %>
+      <tbody id="instructor<%= instructor.id %>">
+        <tr class="instructors_table">
+          <td> <%= instructor.first_name %> </td>
+          <td> <%= instructor.last_name %> </td>
+          <td> <%= instructor.age %> </td>
+          <td> <%= instructor.education %> </td>
+          <td> <%= instructor.cohort.name %> </td>
+          <td> <a href="/instructors/<%= instructor.id %>"><i class="material-icons md-25">perm_identity</i></a></td>
+          <td> <a href="/instructors/<%= instructor.id %>/edit"><i class="material-icons md-25">edit</i></a></td>
+          <td> <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, instructor_path(id: instructor.id), method: :delete, remote: true %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

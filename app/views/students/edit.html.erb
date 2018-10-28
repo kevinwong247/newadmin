@@ -1,0 +1,31 @@
+<div class="container">
+  <% provide(:title, "Edit user") %>
+  <h2>Update this Student: <%= @student.first_name + " " + @student.last_name %></h2>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@student) do |f| %>
+        <div class="col l6">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+        <div class="col l6">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+        <div class="col l6">
+          <%= f.label :age %>
+          <%= f.text_field :age, class: 'form-control' %>
+        </div>
+        <div class="col l6">
+          <%= f.label :education %>
+          <%= f.text_field :education, class: 'form-control' %>
+        </div>
+        <div class="col l6">
+          <%= f.label :cohort %>
+          <%= f.collection_select(:students_cohorts, Cohort.all, :id, :name) %>
+        </div>
+        <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

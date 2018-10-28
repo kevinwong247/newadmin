@@ -1,0 +1,7 @@
+
+<h2>Cohort Name: <%= @cohort.name %>
+<h2>Roster</h2>
+<ol>
+<% @cohort.students.each do |student| %>
+<li> <%= student.first_name %> </li>
+<% end %>

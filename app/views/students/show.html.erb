@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Student <%= @student.first_name + " " + @student.last_name %>:</h1>
+  <%= link_to 'Delete Student', student_path(id: @student.id), method: :delete, class: "waves-effect waves-light btn indigo lighten-1" %>
+  <%= link_to 'Edit Student', student_path(id: @student.id), class: "waves-effect waves-light btn indigo lighten-1" %>
+  
+  <h3>Cohorts:</h3>
+  <table class="posts">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Show</th>
+        <th>Edit</th>
+      </tr>
+    </thead>
+    <% @student.cohorts.each do |cohort| %>
+      <tbody id="cohort<%= cohort.id %>">
+        <tr class="table"></tr>
+        <td> <%= cohort.name %> </td>
+        <td> <%= cohort.start_date %> </td>
+        <td> <%= cohort.end_date %> </td>
+        <td> <a href="/cohorts/<%= cohort.id %>"></td>
+        <td> <a href="/cohorts/<%= cohort.id %>/edit"></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <% provide(:title, "Edit user") %>
+  <h1>Update this Instructor: <%= @instructor.first_name + " " + @instructor.last_name %></h1>
+  <div class="row">
+    <div class="col">
+      <%= form_for(@instructor) do |f| %>
+        <div class="col l6">
+          <%= f.label :first_name %>
+          <%= f.text_field :first_name, class: 'form-control' %>
+        </div>
+        <div class="col l6">
+          <%= f.label :last_name %>
+          <%= f.text_field :last_name, class: 'form-control' %>
+        </div>
+        <div class="col l6">
+          <%= f.label :age %>
+          <%= f.text_field :age, class: 'form-control' %>
+        </div>
+        <div class="col l6">
+          <%= f.label :education %>
+          <%= f.select(:education, options_for_select([['High School', "High School"], ['College', "College"], ['Masters', "Master"], ['PHD', "PHD"]]), { include_blank: true })  %>
+        </div>
+        <div class="col l6">
+          <%= f.label :cohort %>
+          <%= f.collection_select(:cohort, Cohort.all, :id, :name) %>
+        </div>
+        <div class="col l6">
+          <div class="input-field col s6">
+            <%= f.submit "Save", class: "waves-effect waves-light btn indigo lighten-1 center" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
