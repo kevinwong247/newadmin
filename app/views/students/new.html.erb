@@ -1,48 +1,16 @@
-<div class="container">
-  <div class="row">
-    <%= form_with model: @student, url: students_path, class: :col, local: true do |f| %>
-      <div class="col l6">
-        <div class="input-field col s12">
-          <p>
+
+    <%= form_with model: @student do |f| %>
+    
             <%= f.label :first_name %>
             <%= f.text_field :first_name, placeholder: "Rich" %>
-          </p>
-        </div>
-      </div>
-      <div class="col l6">
-        <div class="input-field col s12">
-          <p>
             <%= f.label :last_name %>
             <%= f.text_field :last_name, placeholder: "Trapanese" %>
-          </p>
-        </div>
-      </div>
-      <div class="col l6">
-        <div class="input-field col s12">
-          <p>
             <%= f.label :age %>
             <%= f.text_field :age, placeholder: "15" %>
-          </p>
-        </div>
-      </div>
-      <div class="col l6">
-        <div class="input-field col s12">
-          <p>
             <%= f.label :education %>
-            <%= f.select :education, ['Highschool','College', 'Masters', 'PHD']%>
-          </p>
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="col l6">
-        <div class="input-field col s6">
-          <button class="waves-effect waves-light btn indigo lighten-1" type="submit" > Add Student
-            <%= f.submit " "%>
-          </button>
+            <%= f.select(:education, options_for_select([['High School', "high school"], ['College',"college"], ['Masters',"master"], ['PHD',"PHD"]]), { include_blank: true }) %>
+            <%= f.submit "Add Student "%>
 
-        </div>
-      </div>
+      
     <% end %>
-  </div>
-</div>
+  

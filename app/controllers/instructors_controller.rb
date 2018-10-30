@@ -10,6 +10,10 @@ class InstructorsController < ApplicationController
         @cohorts=Cohort.all.map{|cohort| [cohort.name, cohort.id]}
     end
 
+    def show
+        @instructor=Instructor.find(params[:id])
+    end
+
     def create
         @instructor = Instructor.create(
             first_name: params[:instructor][:first_name],

@@ -1,31 +1,32 @@
 <div class="container">
     <h1>Students:</h1>
-   <a href="/students/new" class="waves-effect waves-light btn indigo lighten-1"><i class="material-icons md-24 right icon align">add_circle_outline</i>Add Student</a>
-    
+   <a href="/students/new" class="waves-effect waves-light btn indigo lighten-1"><i class="material-icons md-24 right icon align"></i>Add Student</a>
 
-    <table class="posts">
+ <table class="table">
             <thead>
                 <tr>
-                    <th class="first_name">First Name</th>
-                    <th class="last_name">Last Name</th>
-                    <th class="age">Age</th>
-                    <th class="education">Education</th>
+                    <th class="first_name" scope="col">First Name</th>
+                    <th class="last_name" scope="col">Last Name</th>
+                    <th class="age" scope="col">Age</th>
+                    <th class="education" scope="col">Education</th>
                     <th>Show</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
             </thead>
+        
         <% @students.each do |student| %>
+            <tr>
             <tbody id="student<%= student.id %>">
-                <tr class="students_table">
-                    <td> <%= student.first_name %> </td>
+                    <th> <%= student.first_name %> </td>
                     <td> <%= student.last_name %> </td>
                     <td> <%= student.age %> </td>
                     <td> <%= student.education %> </td>
-                    <td> <a href="/students/<%= student.id %>"><i class="material-icons md-25">perm_identity</i></a></td>
+                    <td> <a href="/students/<%= student.id %>"><i class="material-icons md-25">show</i></a></td>
                     <td> <a href="/students/<%= student.id %>/edit"><i class="material-icons md-25">edit</i></a></td>
-                    <td> <%= link_to '<i class="material-icons">delete_forever</i>'.html_safe, student_path(id: student.id), method: :delete, remote: true %></td>
-                </tr>
+                    <td> <%= link_to '<i class="material-icons">delete</i>'.html_safe, student_path(id: student.id), method: :delete, remote: true %></td>
+                </th>
+            </tr>
             </tbody>
         <% end %>
     </table>
