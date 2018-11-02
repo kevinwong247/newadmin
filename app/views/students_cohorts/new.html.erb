@@ -1,16 +1,12 @@
 
-<%=@students_cohort%>
 
 
-<% form_with model: @students_cohort do |form| %>
-    <% form.text_field :student_id %>
-    <% form.text_field :cohort_id %>
-
-    <% form.submit %>
-<%end%>
-
-# <%= form_with model: @students_cohort do  |form| %>
-#     <%= form.select :student_id, options_for_select(@students), label: "Add Student" %>
-#     <%= form.select_field :cohort_id, value: @cohort.id %>
-#     <%= form.submit %>
-# <%end%>
+<%= form_with model: @students_cohort, url: "/students_cohorts#create" do |form| %>
+    <div class="container">
+    <%= form.label :student_id %>
+    <%= form.select :student_id, options_for_select(@student, @students_cohort.student_id) %><br>
+    <%= form.label :cohort_id %>
+    <%= form.select :cohort_id, options_for_select(@cohort, @students_cohort.cohort_id) %><br>
+    <%= form.submit %>
+    </div>
+<% end %>

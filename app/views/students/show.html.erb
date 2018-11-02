@@ -1,6 +1,6 @@
 <div class="container">
   <h1 >Student <%= @student.first_name + " " + @student.last_name %>:</h1>
-  <%= link_to 'Delete Student', student_path(id: @student.id), method: :delete, class: "waves-effect waves-light btn indigo lighten-1" %>
+  <%= link_to "Delete", student_path(id: @student.id), method: :delete, remote: true %>
   <%= link_to 'Edit Student', student_path(id: @student.id), class: "waves-effect waves-light btn indigo lighten-1" %>
   
   <h3>Cohorts:</h3>

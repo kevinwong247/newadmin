@@ -1,9 +1,2 @@
-let to_delete = document.getElementById('cohort_<%=@cohort.id%>')
-let one = document.getElementById('one<%=@cohort.id%>')
-let two = document.getElementById('two<%=@cohort.id%>')
-let three = document.getElementById('three<%=@cohort.id%>')
-
-to_delete.style.display="none"
-one.style.display="none"
-two.style.display="none"
-three.style.display="none"
+let DELETE<%= @cohort.id %> = document.querySelector("#delete<%= @cohort.id %>");
+DELETE<%= @cohort.id %>.remove();

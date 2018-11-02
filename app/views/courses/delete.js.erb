@@ -1,4 +1,2 @@
-let to_delete = document.getElementById('course_<%=@course.id%>')
-let delete_button = document.getElementById('button_<%=@course.id%>')
-to_delete.style.display="none"
-delete_button.style.display="none"
+let DELETE<%= @course.id %> = document.querySelector("#delete" + <%= @course.id %>); 
+DELETE<%= @course.id %>.remove();

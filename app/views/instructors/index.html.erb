@@ -19,6 +19,7 @@
 
     <% @instructors.each do |instructor| %>
       <tr>
+      <div id="delete<%= instructor.id%>"> 
       <tbody id="instructor<%= instructor.id %>">
           <th> <%= instructor.first_name %> </th>
           <td> <%= instructor.last_name %> </td>
@@ -27,7 +28,7 @@
           <td> <%= instructor.salary %> </td>
           <td> <a href="/instructors/<%= instructor.id %>"><i class="material-icons md-25">show</i></a></td>
           <td> <a href="/instructors/<%= instructor.id %>/edit"><i class="material-icons md-25">edit</i></a></td>
-          <td><button type='button'> <%= link_to "Delete", instructor_path(instructor), method: :delete, remote: true, data: { confirm: "You sure?" } %></button><br>        </td>
+          <td><%= link_to "Delete", instructor_path(instructor.id), method: :delete, remote: true %></td>
       </tbody>
       </tr>
     <% end %>

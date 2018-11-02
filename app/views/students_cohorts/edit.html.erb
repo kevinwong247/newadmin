@@ -1,0 +1,10 @@
+
+<%= form_with model: @students_cohort do |form| %>
+    <div class="container">
+     <%= form.label :student_id %>
+     <%= form.select :student_id, options_for_select(@student, @students_cohort.student_id) %><br>
+     <%= form.label :cohort_id %>
+     <%= form.select :cohort_id, options_for_select(@cohort, @students_cohort.cohort_id) %><br>
+     <%= form.submit %>
+     </div>
+    <% end %>

@@ -1,0 +1,15 @@
+<% @students_cohort.each do |s| %>
+    <table>
+    <%= link_to "Edit", edit_students_cohort_path(s.id) %><br>
+    <%= link_to "delete", students_cohort_path(s.id), method: :delete, remote: true %>
+        <tr>
+            <th>Students</th>
+            <th>Cohorts</th>
+        </tr>
+
+        <tr>
+            <td><%= s.student_id %></td>
+            <td><%= s.cohort_id %></td>
+        </tr>
+    </table>
+<% end %>

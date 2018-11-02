@@ -12,13 +12,14 @@
       </tr>
     </thead>
     <% @courses.each do |course| %>
-      <tbody id="course<%= course.id %>">
+      <div id="delete<%= course.id %>">
           <th> <%= course.name %> </th>
           <td> <%= course.hours %> </td>
           <td> <a href="/courses/<%= course.id %>"><i class="material-icons md-25">show</i></a></td>
           <td> <a href="/courses/<%= course.id %>/edit"><i class="material-icons md-25">edit</i></a></td>
-          <td><button type='button'> <%= link_to "Delete", course_path(course), method: :delete, remote: true, data: { confirm: "You sure?" } %></button><br>        </td>
+          <td> <%= link_to "Delete", course_path(course.id), method: :delete, remote: true %></td>
       </tbody>
+      </div>
     <% end %>
   </table>
 </div>
