@@ -38,7 +38,7 @@ class StudentsController < ApplicationController
     end
 
     def remove
-        to_remove=StudentsCohort.find_by(student_id: params[:student_id], cohort_id: params[:cohort_id])
+        to_remove=Students_cohort.find_by(student_id: params[:student_id], cohort_id: params[:cohort_id])
         to_remove.destroy
         respond_to do |format|
             format.html {redirect_to students_path}
@@ -54,5 +54,6 @@ class StudentsController < ApplicationController
             format.html {redirect_to students_path}
             format.js 
         end
-end
+    end
+
 end

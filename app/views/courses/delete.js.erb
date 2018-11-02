@@ -1,5 +1,4 @@
-const item<%= @course.id %> = document.querySelector("#course" + <%= @course.id %>);
-let deleteone = document..getElementById('button_<%=@course.id%>')
-item<%= @course.id %>.remove();
-item.style.display="none"
-delete_buttonone.display="none"
+let to_delete = document.getElementById('course_<%=@course.id%>')
+let delete_button = document.getElementById('button_<%=@course.id%>')
+to_delete.style.display="none"
+delete_button.style.display="none"

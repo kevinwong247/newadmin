@@ -22,11 +22,15 @@
                 <td> <%= cohort.end_date %> </td>
                 <td id="one"> <a href="/cohorts/<%= cohort.id %>"><i class="material-icons md-25">show</i></a></td>
                 <td id= "two"> <a href="/cohorts/<%= cohort.id %>/edit"><i class="material-icons md-25">edit</i></a></td>
-                <td id='three'> <%= link_to '<i class="material-icons">delete</i>'.html_safe, cohort_path(id: cohort.id), method: :delete, remote: true %></td>
-              </tr>
+                <td><button type='button'> <%= link_to "Delete", cohort_path(cohort), method: :delete, remote: true, data: { confirm: "You sure?" } %></button><br>              </td>
             </tbody>
           <% end %>
         </table>
+        Students:
+        <% @students.each do |student| %>
+            <%= student[0] %>
+          
+        <%end%>
  
 
 </div>

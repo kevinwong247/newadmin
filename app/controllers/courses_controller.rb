@@ -38,5 +38,5 @@ class CoursesController < ApplicationController
             format.html {redirect_to courses_path}
             format.js 
         end
-end
+    end
 end

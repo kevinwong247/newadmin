@@ -1,3 +1,3 @@
-const item<%= @instructor.id %> = document.querySelector("#instructor" + <%= @instructor.id %>);
+let to_delete = document.getElementById('instructor_<%=@instructor.id%>')
 
-item<%= @instructor.id %>.remove();
+to_delete.style.display="none"

@@ -5,3 +5,17 @@
 <% @cohort.students.each do |student| %>
 <li> <%= student.first_name %> </li>
 <% end %>
+
+<%= form_with model: @students_cohort do  |form| %>
+    <%= form.select :student_id, options_for_select(@students), label: "Add Student" %>
+    <%= form.hidden_field :cohort_id, value: @cohort.id %>
+    <%= form.submit %>
+<%end%>
+
+
+
+
+  
+
+
+

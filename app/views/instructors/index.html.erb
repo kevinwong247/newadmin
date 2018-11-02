@@ -18,17 +18,18 @@
             </thead>
 
     <% @instructors.each do |instructor| %>
+      <tr>
       <tbody id="instructor<%= instructor.id %>">
           <th> <%= instructor.first_name %> </th>
           <td> <%= instructor.last_name %> </td>
           <td> <%= instructor.age %> </td>
           <td> <%= instructor.education %> </td>
-          # <td> <%= instructor.salary %> </td>
+          <td> <%= instructor.salary %> </td>
           <td> <a href="/instructors/<%= instructor.id %>"><i class="material-icons md-25">show</i></a></td>
           <td> <a href="/instructors/<%= instructor.id %>/edit"><i class="material-icons md-25">edit</i></a></td>
-          <td> <%= link_to '<i class="material-icons">delete</i>'.html_safe, instructor_path(id: instructor.id), method: :delete, remote: true %></td>
-        </tr>
+          <td><button type='button'> <%= link_to "Delete", instructor_path(instructor), method: :delete, remote: true, data: { confirm: "You sure?" } %></button><br>        </td>
       </tbody>
+      </tr>
     <% end %>
   </table>
 </div>

@@ -1,5 +1,5 @@
 
-    <%= form_with model: @student do |f| %>
+    <%= form_with model: @instructor do |f| %>
     
       <%= f.label :first_name %>
       <%= f.text_field :first_name, placeholder: "Rich" %>
@@ -11,7 +11,7 @@
       <%= f.text_field :salary, placeholder: "10000000" %>
       <%= f.label :education %>
       <%= f.select(:education, options_for_select([['High School', "high school"], ['College',"college"], ['Masters',"master"], ['PHD',"PHD"]]), { include_blank: true }) %>
-      <%= f.submit "Add Student "%>
-
-
-<% end %>
+      <%= f.label :cohort_id %>
+      <%= f.select :cohort_id, options_for_select(@cohorts, @instructor.id)%>
+      <%= f.submit "Add Instructor"%>
+  <% end %>

@@ -17,8 +17,7 @@
           <td> <%= course.hours %> </td>
           <td> <a href="/courses/<%= course.id %>"><i class="material-icons md-25">show</i></a></td>
           <td> <a href="/courses/<%= course.id %>/edit"><i class="material-icons md-25">edit</i></a></td>
-          <td> <%= link_to '<i class="material-icons">delete</i>'.html_safe, course_path(id: course.id), method: :delete, remote: true %></td>
-        </tr>
+          <td><button type='button'> <%= link_to "Delete", course_path(course), method: :delete, remote: true, data: { confirm: "You sure?" } %></button><br>        </td>
       </tbody>
     <% end %>
   </table>

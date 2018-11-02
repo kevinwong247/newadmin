@@ -1,0 +1,16 @@
+
+<%=@students_cohort%>
+
+
+<% form_with model: @students_cohort do |form| %>
+    <% form.text_field :student_id %>
+    <% form.text_field :cohort_id %>
+
+    <% form.submit %>
+<%end%>
+
+# <%= form_with model: @students_cohort do  |form| %>
+#     <%= form.select :student_id, options_for_select(@students), label: "Add Student" %>
+#     <%= form.select_field :cohort_id, value: @cohort.id %>
+#     <%= form.submit %>
+# <%end%>

@@ -28,6 +28,7 @@ class CohortsController < ApplicationController
 
     def show
         @cohort=Cohort.find(params[:id])
+        @students = Student.all.map{|student|[student.first_name, student.id] } 
     end
 
     def update
@@ -48,17 +49,14 @@ class CohortsController < ApplicationController
         end
     end
 
-    def create_students_cohort
-        array=params[:students_ids]
-        array.map!(&:to_i)
-        array=array[1..-1]
-        array.each do |student_id|
-            puts student_id
-        StudentsCohort.create(
-            student_id: student_id,
-            cohort_id: params[:cohort_id]
+
+
+    def new_students_cohort
+        Students_cohort.create(
+            cohort_id: params[:cohort_id],
+            student_id: params[student_id]
         )
-        end
-        redirect_to '/cohorts'
-    end
+    end 
+
+ 
 end

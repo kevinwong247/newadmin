@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  get 'students_cohorts/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   get 'sessions/new'
@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :cohorts
 
   resources :students_cohorts, only: [:new, :create]
+
+  post '/cohorts/:id', to: 'students_cohorts#create'
 
 
 

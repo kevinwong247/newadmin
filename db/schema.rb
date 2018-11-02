@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2018_10_26_071204) do
     t.string "last_name"
     t.string "age"
     t.string "education"
-    t.string "cohort_id"
+    t.integer "cohort_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

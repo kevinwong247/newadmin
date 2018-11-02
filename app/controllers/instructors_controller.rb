@@ -5,14 +5,15 @@ class InstructorsController < ApplicationController
         @cohorts=Cohort.all.map{|cohort| [cohort.name, cohort.id]}
     end
 
+    def show
+        @instructor=Instructor.find(params[:id])
+    end
+
     def new
         @instructor = Instructor.new
         @cohorts=Cohort.all.map{|cohort| [cohort.name, cohort.id]}
     end
 
-    def show
-        @instructor=Instructor.find(params[:id])
-    end
 
     def create
         @instructor = Instructor.create(
@@ -22,7 +23,6 @@ class InstructorsController < ApplicationController
             salary: params[:instructor][:salary],
             education: params[:instructor][:education],
             cohort_id: params[:instructor][:cohort_id]
-            
         )
         redirect_to '/instructors'
     end
